@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 
 function Copyright({ lang }) {
   return (
@@ -40,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
+  footerLink: {
+    color: '#61dafb',
+  },
 }));
 
 export default function StickyFooter({ lang }) {
@@ -64,6 +68,19 @@ export default function StickyFooter({ lang }) {
       </Container>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
+          <Typography variant="body">
+            This website was created using{' '}
+            <Link
+              noWrap
+              color="inherit"
+              variant="body1"
+              href={'https://github.com/tutanck/blog'}
+              className={classes.footerLink}
+            >
+              Youblog
+            </Link>
+            {'.'}
+          </Typography>
           <Copyright lang={lang} />
         </Container>
       </footer>
