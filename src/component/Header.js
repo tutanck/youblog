@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import blueGrey from '@material-ui/core/colors/blueGrey';
 import Typography from '@material-ui/core/Typography';
-/* import Link from '@material-ui/core/Link'; */
+import Link from '@material-ui/core/Link';
+import { sections } from '../static/resources/json';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -21,10 +23,9 @@ const useStyles = makeStyles((theme) => ({
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
+    color: blueGrey[900],
   },
 }));
-
-/* const sections = [{ title: 'Technology', url: '#' }]; */
 
 export default function Header({ lang }) {
   const classes = useStyles();
@@ -37,7 +38,7 @@ export default function Header({ lang }) {
           color="secondary"
           href="https://paypal.me/pools/c/8nXuBPoX1L"
         >
-          {lang.support_us}
+          {lang.action_left}
         </Button>
 
         <Typography
@@ -48,15 +49,19 @@ export default function Header({ lang }) {
           color="inherit"
           className={classes.toolbarTitle}
         >
-          Drepakin.com
+          {lang.blog_name}
         </Typography>
 
         <Button variant="outlined" href="/app" size="small" color="primary">
-          {lang.go_to_app}
+          {lang.action_right}
         </Button>
       </Toolbar>
 
-      {/* <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+      <Toolbar
+        component="nav"
+        variant="dense"
+        className={classes.toolbarSecondary}
+      >
         {sections.map((section) => (
           <Link
             color="inherit"
@@ -69,7 +74,7 @@ export default function Header({ lang }) {
             {section.title}
           </Link>
         ))}
-      </Toolbar> */}
+      </Toolbar>
     </React.Fragment>
   );
 }

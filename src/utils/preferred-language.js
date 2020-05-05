@@ -1,7 +1,7 @@
 import { isLocalStorageAvailable } from './local-storage';
 import supportedLanguages from './supported-languages';
 
-const DREPAKIN_PREFERRED_LANGUAGE_KEY = 'DREPAKIN_STORED_PREFFERED_LANGUAGE';
+const BLOG_PREFERRED_LANGUAGE_KEY = 'BLOG_STORED_PREFFERED_LANGUAGE';
 
 const loadPreferredLanguage = () => {
   if (!isLocalStorageAvailable()) {
@@ -9,12 +9,12 @@ const loadPreferredLanguage = () => {
   }
 
   const preferredLanguage = JSON.parse(
-    localStorage.getItem(DREPAKIN_PREFERRED_LANGUAGE_KEY),
+    localStorage.getItem(BLOG_PREFERRED_LANGUAGE_KEY),
   );
   return preferredLanguage;
 };
 
-const storePreferredLanguage = preferredLanguage => {
+const storePreferredLanguage = (preferredLanguage) => {
   if (!isLocalStorageAvailable()) {
     return;
   }
@@ -24,7 +24,7 @@ const storePreferredLanguage = preferredLanguage => {
   }
 
   localStorage.setItem(
-    DREPAKIN_PREFERRED_LANGUAGE_KEY,
+    BLOG_PREFERRED_LANGUAGE_KEY,
     preferredLanguage ? JSON.stringify(preferredLanguage) : null,
   );
 };

@@ -1,32 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
+import Header from '../component/Header';
+import Sidebar from '../component/Sidebar';
+import MainFeaturedPost from '../component/MainFeaturedPost';
+import FeaturedPost from '../component/FeaturedPost';
+import posts from '../static/resources/blog-post';
+import Pagination from 'material-ui-flat-pagination';
+import paginate from 'paginate-array';
 
-import posts from '../../static/resources/blog-post';
-
+const useStyles = makeStyles((theme) => ({
+  paginatorContainer: {
+    margin: 'auto',
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  },
+}));
 export default function Blog({ lang }) {
+  const classes = useStyles();
+
+  const [head, ...news] = posts.news;
+
+  const numItemsPerPage = 6;
+
+  const [
+    { currentPage, perPage, total, totalPages, data },
+    setPaginatedCollection,
+  ] = useState(paginate(news, undefined, numItemsPerPage));
+
+  console.log('====================================');
+  console.log(currentPage, perPage, total, totalPages, data);
+  console.log('====================================');
+
   return (
     <Container maxWidth="lg">
       <Header lang={lang} />
 
       <main>
-        <MainFeaturedPost post={posts.news[0]} lang={lang} />
+        <MainFeaturedPost post={head} lang={lang} />
 
         <Grid container spacing={4}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={8} key={'featured'}>
             <Grid container spacing={4}>
-              {posts.news.slice(1).map((post) => (
+              {data.map((post) => (
                 <FeaturedPost key={post.slug} post={post} lang={lang} />
               ))}
             </Grid>
           </Grid>
 
           <Sidebar lang={lang} />
+
+          <Grid
+            item
+            xs={12}
+            key={'paginator'}
+            className={classes.paginatorContainer}
+          >
+            <Pagination
+              limit={perPage}
+              offset={currentPage}
+              total={totalPages}
+              onClick={(e, offset) =>
+                setPaginatedCollection(
+                  paginate(news, offset + 1, numItemsPerPage),
+                )
+              }
+              previousPageLabel="<"
+              nextPageLabel=">"
+            />
+          </Grid>
         </Grid>
       </main>
     </Container>

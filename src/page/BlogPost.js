@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import blueGrey from '@material-ui/core/colors/blueGrey';
-import Markdown from '../cpn/common/Markdown';
+import Markdown from '../component/Markdown';
 import posts from '../static/resources/blog-post';
 import { Button } from '@material-ui/core';
 
