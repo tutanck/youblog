@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
     color: blueGrey[700],
   },
+  headerBtn: {
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+  },
 }));
 
 export default function Header({ lang }) {
@@ -33,26 +37,33 @@ export default function Header({ lang }) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Button
-          size="small"
-          color="secondary"
-          href="https://paypal.me/pools/c/8nXuBPoX1L"
-        >
-          {lang.action_left}
-        </Button>
-
         <Typography
           noWrap
           variant="h5"
           component="h2"
-          align="center"
+          align="left"
           color="inherit"
           className={classes.toolbarTitle}
         >
           {lang.blog_name}
         </Typography>
 
-        <Button variant="outlined" href="/app" size="small" color="primary">
+        <Button
+          size="small"
+          color="secondary"
+          className={classes.headerBtn}
+          href="https://paypal.me/pools/c/8nXuBPoX1L"
+        >
+          {lang.action_left}
+        </Button>
+
+        <Button
+          href="/app"
+          size="small"
+          color="primary"
+          variant="outlined"
+          className={classes.headerBtn}
+        >
           {lang.action_right}
         </Button>
       </Toolbar>
