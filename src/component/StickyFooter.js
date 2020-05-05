@@ -87,7 +87,7 @@ export default function StickyFooter({ lang }) {
               noWrap
               color="inherit"
               variant="body1"
-              href={'https://github.com/tutanck/blog'}
+              href={'https://github.com/tutanck/youblog'}
               className={classes.footerLink}
             >
               Youblog
