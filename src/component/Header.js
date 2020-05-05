@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
-    color: blueGrey[900],
+    color: blueGrey[700],
   },
 }));
 
@@ -64,11 +64,11 @@ export default function Header({ lang }) {
       >
         {sections.map((section) => (
           <Link
-            color="inherit"
             noWrap
-            key={section.title}
+            color="inherit"
             variant="body2"
             href={section.url}
+            key={section.title}
             className={classes.toolbarLink}
           >
             {section.title}

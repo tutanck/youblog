@@ -6,8 +6,9 @@
   "about_title": "About",
   "about_section": "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.",
   "social": "Social",
+  "archives": "Archives",
   "website": "Your website",
-  "footer_title": "Jean Dupont",
-  "footer_section": "Pin a footer to the bottom of the viewport.The footer will move as the main element of the page grows.",
-  "footer_quote": "Your quote here"
+  "footer_title": "Barack Obama",
+  "footer_section": "Former President of the United States of America. I served as the 44th President of the United States of America.",
+  "footer_quote": "Yes We Can!"
 }

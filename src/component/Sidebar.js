@@ -9,6 +9,7 @@ import posts from '../static/resources/blog-post';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import { social } from '../static/resources/json';
 
 const useStyles = makeStyles((theme) => ({
   sidebarAboutBox: {
@@ -21,14 +22,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const social = [
-  { name: 'GitHub', icon: GitHubIcon },
-  { name: 'Twitter', icon: TwitterIcon },
-  { name: 'Facebook', icon: FacebookIcon },
-];
+const socialIcons = {
+  GitHub: GitHubIcon,
+  Twitter: TwitterIcon,
+  Facebook: FacebookIcon,
+};
 
 export default function Sidebar({ lang }) {
   const classes = useStyles();
+
+  console.log('====================================');
+  console.log(social);
+  console.log('====================================');
 
   return (
     <Grid item xs={12} md={4}>
@@ -64,16 +69,21 @@ export default function Sidebar({ lang }) {
       <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         {lang.social}
       </Typography>
-      {social.map((network) => (
-        <Link display="block" variant="body1" href="#" key={network}>
-          <Grid container direction="row" spacing={1} alignItems="center">
-            <Grid item>
-              <network.icon />
-            </Grid>
-            <Grid item>{network.name}</Grid>
-          </Grid>
-        </Link>
-      ))}
+
+      <Grid container direction="column" spacing={1} alignItems="center">
+        {social.map(({ name, url }) => {
+          const SocialIcon = socialIcons[name];
+
+          return (
+            <Link key={name} display="block" variant="body1" href={url}>
+              <Grid container direction="row" spacing={1} alignItems="center">
+                <Grid item>{SocialIcon && <SocialIcon />}</Grid>
+                <Grid item>{name}</Grid>
+              </Grid>
+            </Link>
+          );
+        })}
+      </Grid>
     </Grid>
   );
 }
