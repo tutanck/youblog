@@ -30,8 +30,10 @@ export default function Blog({ lang }) {
     setPaginatedCollection,
   ] = useState(paginate(news, undefined, numItemsPerPage));
 
+  const offset = (currentPage - 1) * perPage;
+
   console.log('====================================');
-  console.log(currentPage, perPage, total, totalPages, data);
+  console.log(currentPage, perPage, total, totalPages, data, offset);
   console.log('====================================');
 
   return (
@@ -60,11 +62,11 @@ export default function Blog({ lang }) {
           >
             <Pagination
               limit={perPage}
-              offset={currentPage}
-              total={totalPages}
+              offset={offset}
+              total={total}
               onClick={(e, offset) =>
                 setPaginatedCollection(
-                  paginate(news, offset + 1, numItemsPerPage),
+                  paginate(news, offset / perPage + 1, numItemsPerPage),
                 )
               }
               previousPageLabel="<"
