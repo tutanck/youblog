@@ -5,20 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-
-function Copyright({ lang }) {
-  return (
-    <Typography variant="body2">
-      {'Copyright © '}
-      {lang.website} {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-Copyright.propTypes = {
-  lang: PropTypes.object.isRequired,
-};
+import avatar from '../static/assets/images/avatar.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,13 +25,43 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.grey[800],
   },
   avatar: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+    width: theme.spacing(16),
+    height: theme.spacing(16),
+    margin: theme.spacing(1),
   },
   footerLink: {
     color: '#61dafb',
   },
+  whiteLink: {
+    color: 'white',
+    textDecoration: 'underline',
+  },
 }));
+
+function Copyright({ lang }) {
+  const classes = useStyles();
+
+  return (
+    <Typography variant="body2">
+      {'Copyright © '}
+      {lang.website} {new Date().getFullYear()}
+      {'.'}{' '}
+      <Link
+        noWrap
+        color="inherit"
+        variant="caption"
+        href={'/legal'}
+        className={classes.whiteLink}
+      >
+        {lang.legal_notice}
+      </Link>
+    </Typography>
+  );
+}
+
+Copyright.propTypes = {
+  lang: PropTypes.object.isRequired,
+};
 
 export default function StickyFooter({ lang }) {
   const classes = useStyles();
@@ -52,11 +69,7 @@ export default function StickyFooter({ lang }) {
   return (
     <div className={classes.root}>
       <Container component="main" className={classes.main} maxWidth="sm">
-        <Avatar
-          alt="avatar"
-          src="/static/assets/images/avatar.jpg"
-          className={classes.avatar}
-        />
+        <Avatar alt="avatar" src={avatar} className={classes.avatar} />
 
         <Typography variant="h2" component="h1" gutterBottom>
           {lang.footer_title}

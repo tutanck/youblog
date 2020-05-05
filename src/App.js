@@ -15,6 +15,7 @@ import supportedLanguages, {
 import langs from './static/resources/langs';
 import Blog from './page/Blog';
 import BlogPost from './page/BlogPost';
+import LegalNotice from './page/LegalNotice';
 import StickyFooter from './component/StickyFooter';
 import './App.css';
 
@@ -54,6 +55,10 @@ export default function App() {
           <div className={classes.root}>
             <AppContextProvider value={{ lang, language }}>
               <Switch>
+                <Route path="/legal">
+                  <LegalNotice lang={lang} language={language} />
+                </Route>
+
                 <Route path="/blog/:row/:slug">
                   <BlogPost />
                 </Route>
