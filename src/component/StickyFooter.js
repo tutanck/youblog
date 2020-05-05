@@ -81,7 +81,7 @@ export default function StickyFooter({ lang }) {
       </Container>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body">
+          <Typography variant="body1">
             This website was created using{' '}
             <Link
               noWrap
