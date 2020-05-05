@@ -1,12 +1,12 @@
 [
-  { "title": "Technology", "url": "#" },
-  { "title": "Design", "url": "#" },
-  { "title": "Culture", "url": "#" },
-  { "title": "Business", "url": "#" },
-  { "title": "Politics", "url": "#" },
-  { "title": "Opinion", "url": "#" },
-  { "title": "Science", "url": "#" },
-  { "title": "Health", "url": "#" },
-  { "title": "Style", "url": "#" },
-  { "title": "Travel", "url": "#" }
+  { "name": "Technology", "url": "#" },
+  { "name": "Design", "url": "#" },
+  { "name": "Culture", "url": "#" },
+  { "name": "Business", "url": "#" },
+  { "name": "Politics", "url": "#" },
+  { "name": "Opinion", "url": "#" },
+  { "name": "Science", "url": "#" },
+  { "name": "Health", "url": "#" },
+  { "name": "Style", "url": "#" },
+  { "name": "Travel", "url": "#" }
 ]

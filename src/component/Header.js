@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import { sections } from '../static/resources/json';
+import { sections, actions } from '../static/resources/json';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -49,16 +49,16 @@ export default function Header({ lang }) {
         </Typography>
 
         <Button
+          href={actions.action_left}
           size="small"
           color="secondary"
           className={classes.headerBtn}
-          href="https://paypal.me/pools/c/8nXuBPoX1L"
         >
           {lang.action_left}
         </Button>
 
         <Button
-          href="/app"
+          href={actions.action_right}
           size="small"
           color="primary"
           variant="outlined"
@@ -79,10 +79,10 @@ export default function Header({ lang }) {
             color="inherit"
             variant="body2"
             href={section.url}
-            key={section.title}
+            key={section.name}
             className={classes.toolbarLink}
           >
-            {section.title}
+            {section.name}
           </Link>
         ))}
       </Toolbar>
