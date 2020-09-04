@@ -9,7 +9,7 @@
     "@testing-library/react": "9.5.0",
     "@testing-library/user-event": "7.2.1",
     "clsx": "1.0.4",
-    "markdown-to-jsx": "6.11.1",
+    "markdown-to-jsx": "6.11.4",
     "material-ui-flat-pagination": "4.0.0",
     "paginate-array": "^2.1.0",
     "react": "16.13.1",
